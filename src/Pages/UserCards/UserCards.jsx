@@ -39,7 +39,7 @@ const UserCards = () => {
 
     return (
         <div>
-            <div className='rounded-lg bg-slate-950 py-6'>
+            <div className='rounded-lg bg-slate-800 py-6'>
                 <div className='text-center'>
                     <h1 className='text-6xl text-white my-4 font-bold'>Users</h1>
                 </div>

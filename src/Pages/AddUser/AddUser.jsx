@@ -11,7 +11,11 @@ const AddUser = () => {
         const firstName = form.firstName.value;
         const lastName = form.lastName.value;
         const company = form.company.value;
-        const address = form.address.value;
+        const address = {
+            address: form.address.value,
+            city: form.city.value,
+            postalCode: form.postalCode.value
+        };
         console.log(email, image, firstName, lastName, company, address);
         const existingDataString = localStorage.getItem('data');
 
@@ -22,8 +26,11 @@ const AddUser = () => {
         const newUser = {
             "id": existingData.length + 1,
             "firstName": firstName,
-            "lastName": email,
-            // Add other properties as needed
+            "lastName": lastName,
+            "email": email,
+            "image": image,
+            "company": company,
+            "address": address
         };
 
         // Add the new user to the existing data
@@ -34,7 +41,6 @@ const AddUser = () => {
 
         // Store the updated JSON string back into localStorage
         localStorage.setItem('data', updatedDataString);
-
     }
 
 
@@ -81,22 +87,25 @@ const AddUser = () => {
 
                 {/* {form address row} */}
                 <div className="md:flex mb-6">
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div className="form-control md:w-1/3">
                         <label className="label">
                             <span className="label-text">Address</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="address" id="" placeholder='Address' className="input input-bordered w-full" />
-                        </label>
-
-                        
-                        {/* <label className="input-group">
-                            <input type="text" name="suite" id="" placeholder='Suite' className="input input-bordered w-full" />
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="city" id="" placeholder='City' className="input input-bordered w-full" />
-                        </label> */}
+                        <input type="text" name="address" placeholder="Street" className="input input-bordered w-full" />
                     </div>
+                    <div className="form-control md:w-1/3 ml-4">
+                        <label className="label">
+                            <span className="label-text">Postal Code</span>
+                        </label>
+                        <input type="text" name="postalCode" placeholder="Postal Code" className="input input-bordered w-full" />
+                    </div>
+                    <div className="form-control md:w-1/3 ml-4">
+                        <label className="label">
+                            <span className="label-text">City</span>
+                        </label>
+                        <input type="text" name="city" placeholder="City" className="input input-bordered w-full" />
+                    </div>
+                    
                 </div>
 
 
@@ -125,7 +134,7 @@ const AddUser = () => {
                     </div>
                 </div>
 
-                <input type="submit" value="Add user" className="btn bg-error hover:bg-rose-500 btn-block" />
+                <input type="submit" value="Add user" className="btn bg-cyan-500 hover:bg-cyan-700 btn-block" />
 
             </form>
         </div>
