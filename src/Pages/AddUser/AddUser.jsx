@@ -29,7 +29,7 @@ const AddUser = ({ onAddUser }) => {
             "lastName": lastName,
             "email": email,
             "image": image,
-            "company": {"name": company},
+            "company": { "name": company },
             "address": address
         };
 
@@ -42,7 +42,7 @@ const AddUser = ({ onAddUser }) => {
         // Store the updated JSON string back into localStorage
         localStorage.setItem('data', updatedDataString);
 
-        
+
         // Call the callback function to send the new user data to the parent component
         onAddUser(newUser);
 
@@ -64,7 +64,7 @@ const AddUser = ({ onAddUser }) => {
                             <span className="label-text">First Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="firstName" placeholder="First Name" className="input input-bordered w-full" />
+                            <input type="text" name="firstName" placeholder="First Name" required className="input input-bordered w-full" />
                         </label>
                     </div>
                     {/* form last name row */}
@@ -73,7 +73,7 @@ const AddUser = ({ onAddUser }) => {
                             <span className="label-text">Last Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="lastName" placeholder="Last Name" className="input input-bordered w-full" />
+                            <input type="text" name="lastName" placeholder="Last Name" required className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ const AddUser = ({ onAddUser }) => {
                             <span className="label-text">User Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="email" name="email" placeholder="email" className="input input-bordered w-full" />
+                            <input type="email" name="email" placeholder="Email" required className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -98,21 +98,22 @@ const AddUser = ({ onAddUser }) => {
                         <label className="label">
                             <span className="label-text">Address</span>
                         </label>
-                        <input type="text" name="address" placeholder="Street" className="input input-bordered w-full" />
+                        <input type="text" name="address" placeholder="Street" required className="input input-bordered w-full" />
                     </div>
                     <div className="form-control md:w-1/3 ml-4">
                         <label className="label">
                             <span className="label-text">Postal Code</span>
                         </label>
-                        <input type="text" name="postalCode" placeholder="Postal Code" className="input input-bordered w-full" />
+                        <input type="text" name="postalCode" placeholder="Postal Code" required className="input input-bordered w-full" />
                     </div>
                     <div className="form-control md:w-1/3 ml-4">
                         <label className="label">
                             <span className="label-text">City</span>
                         </label>
-                        <input type="text" name="city" placeholder="City" className="input input-bordered w-full" />
+                        <input type="text" name="city" placeholder="City"
+                            required className="input input-bordered w-full" />
                     </div>
-                    
+
                 </div>
 
 
@@ -124,7 +125,7 @@ const AddUser = ({ onAddUser }) => {
                             <span className="label-text">Company Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="company" placeholder="Company" className="input input-bordered w-full" />
+                            <input type="text" name="company" placeholder="Company" required className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -136,12 +137,12 @@ const AddUser = ({ onAddUser }) => {
                             <span className="label-text">Avatar</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="image" placeholder="Avatar" className="input input-bordered w-full" />
+                            <input type="text" name="image" placeholder="Avatar" required className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
 
-                <input type="submit" value="Add user" className="btn bg-cyan-500 hover:bg-cyan-700 btn-block" />
+                <input type="submit" value="Add User" className="btn bg-cyan-500 hover:bg-cyan-700 btn-block text-white" />
 
             </form>
         </div>

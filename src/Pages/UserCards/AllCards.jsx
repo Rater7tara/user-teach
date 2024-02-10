@@ -12,9 +12,9 @@ const AllCards = ({ task }) => {
                 <div className="rounded-full relative max-w-xs overflow-hidden bg-cover bg-no-repeat justify-center mx-auto">
                     <img src={image} className="w-60 h-60 mt-4" />
 
-                    <Link to={`/singleUser/${id}`}><span className="absolute bottom-2 right-0 left-20 top-auto z-10 inline-block rotate-0 p-2.5 bg-cyan-500 text-md text-white font-bold">{firstName} {lastName}</span></Link>
+                    <Link to={`/singleUser/${id}`}><span className="absolute bottom-2 right-0 left-20 top-auto z-10 inline-block rotate-0 p-2.5 bg-cyan-500 hover:bg-cyan-700 text-md text-white font-bold">{firstName} {lastName}</span></Link>
 
-                    
+
                 </div>
                 <p className='text-black text-center'><span className='font-bold'>Email:</span>  {email}</p>
 

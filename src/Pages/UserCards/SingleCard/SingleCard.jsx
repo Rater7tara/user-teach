@@ -7,7 +7,7 @@ import Loading from '../../../components/Loading/Loading';
 const SingleCard = () => {
     const { id } = useParams();
     const [userData, setUserData] = useState(null);
-    
+
     useEffect(() => {
         // Retrieve user data from localStorage based on the ID
         const data = JSON.parse(localStorage.getItem('data'));
@@ -27,14 +27,14 @@ const SingleCard = () => {
                 <div className="absolute top-0 left-0 right-0 flex justify-center mt-5" >
                     <img src={userData.image} alt={`${firstName} ${lastName}`} className="w-44 h-44 rounded-full border-4  border-white shadow-md" />
                 </div>
-                
+
                 <div className="mt-48 text-center">
                     <h2 className="text-xl font-semibold text-white mb-2">{userData.firstName} {userData.lastName}</h2>
-                    
+
                 </div>
                 <div className='flex justify-around mt-4 pt-4'>
-                <h2 className="text-xl font-bold text-black mb-2">First Name: <span className='text-gray-600'>{userData.firstName}</span></h2>
-                <h2 className="text-xl font-bold text-black mb-2">Last Name: <span className='text-gray-600'>{userData.lastName}</span> </h2>
+                    <h2 className="text-xl font-bold text-black mb-2">First Name: <span className='text-gray-600'>{userData.firstName}</span></h2>
+                    <h2 className="text-xl font-bold text-black mb-2">Last Name: <span className='text-gray-600'>{userData.lastName}</span> </h2>
                 </div>
                 <p className='text-gray-600 text-center mt-2'><span className='font-bold'>Email:</span>  {userData.email}</p>
                 <div className="">
@@ -42,11 +42,11 @@ const SingleCard = () => {
                     <p className='flex flex-col'>
                         <span>{userData.address.address},</span>
 
-                        
+
                         <span>City: {userData.address.city},</span>
                         <span>Postal Code: {userData.address.postalCode}</span>
-                        </p>
-                        
+                    </p>
+
                 </div>
                 <div className="mt-4">
                     <h3 className="text-gray-700 font-bold mb-2">Company Name</h3>
@@ -54,7 +54,7 @@ const SingleCard = () => {
                 </div>
             </div>
         </div>
-        
+
     );
 };
 

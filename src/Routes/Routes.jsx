@@ -22,9 +22,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/singleUser/:id',
-                element: <SingleCard></SingleCard>,
-                loader: () => fetch(''),
-
+                element: <SingleCard></SingleCard>
             }
         ]
     },
