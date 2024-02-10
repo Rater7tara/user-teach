@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddUser = () => {
+const AddUser = ({ onAddUser }) => {
 
 
     const handleAddUser = event => {
@@ -29,7 +29,7 @@ const AddUser = () => {
             "lastName": lastName,
             "email": email,
             "image": image,
-            "company": company,
+            "company": {"name": company},
             "address": address
         };
 
@@ -41,7 +41,14 @@ const AddUser = () => {
 
         // Store the updated JSON string back into localStorage
         localStorage.setItem('data', updatedDataString);
-    }
+
+        
+        // Call the callback function to send the new user data to the parent component
+        onAddUser(newUser);
+
+        // Reset the form
+        form.reset();
+    };
 
 
 
@@ -50,7 +57,7 @@ const AddUser = () => {
 
             <form className='form md:w-2/4 sm:w-full bg-base-200 p-10 rounded' onSubmit={handleAddUser}>
                 <h2 className="text-4xl font-extrabold text-center mt-2 mb-2">Add A User</h2>
-                {/* form toy name and row */}
+                {/* form first name row */}
                 <div className="md:flex mb-6">
                     <div className="form-control md:w-1/2">
                         <label className="label">

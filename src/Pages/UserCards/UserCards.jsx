@@ -21,16 +21,31 @@ const UserCards = () => {
            
         }, []);
     
-    useEffect(() => {
+    // useEffect(() => {
         
-        if (dataFromLocalStorage) {
-            setLocalData(JSON.parse(dataFromLocalStorage));
-        }
-    }, [dataFromLocalStorage]);
+    //     if (dataFromLocalStorage) {
+    //         setLocalData(JSON.parse(dataFromLocalStorage));
+    //     }
+    // }, [dataFromLocalStorage]);
 
 
     
-        
+    useEffect(() => {
+        // Fetch existing data from local storage
+        const dataFromLocalStorage = localStorage.getItem('data');
+        if (dataFromLocalStorage) {
+            setLocalData(JSON.parse(dataFromLocalStorage));
+        }
+    }, []);
+
+    const handleAddUser = (newUserData) => {
+        // Prepend new user data to existing data
+        const updatedData = [newUserData, ...localData];
+        // Update local storage with the updated data
+        localStorage.setItem('data', JSON.stringify(updatedData));
+        // Update state with the updated data
+        setLocalData(updatedData);
+    };
     
 
 
@@ -59,7 +74,7 @@ const UserCards = () => {
 
 
 
-            <AddUser></AddUser>
+            <AddUser onAddUser={handleAddUser} />
         </div>
     );
 };

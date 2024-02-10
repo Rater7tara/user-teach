@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import Loading from '../../../components/Loading/Loading';
 
 
 const SingleCard = () => {
@@ -15,7 +16,7 @@ const SingleCard = () => {
     }, [id]);
 
     if (!userData) {
-        return <div>Loading...</div>;
+        return <Loading></Loading>;
     }
 
     const { image, firstName, lastName, company, address, email } = userData;
@@ -49,7 +50,7 @@ const SingleCard = () => {
                 </div>
                 <div className="mt-4">
                     <h3 className="text-gray-700 font-bold mb-2">Company Name</h3>
-                    <p>{userData.company.name}</p>
+                    <p>{company.name}</p>
                 </div>
             </div>
         </div>
